@@ -1,3 +1,5 @@
+import 'package:eddling/view/utils/AppRoute.dart';
+import 'package:eddling/view/utils/Constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +14,22 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData( fontFamily: 'CooperHewitt'
+        //fontFamily: DefaultTextStyle.of(context).style.fontFamily
+      ),
+      darkTheme: ThemeData(
+
+          textTheme: Theme.of(context)
+              .textTheme
+              .apply( fontFamily: 'CooperHewitt'
+            //fontFamily: DefaultTextStyle.of(context).style.fontFamily,
+          )),
+      initialRoute: '/',
+      routes: getAppRoute(),
+      navigatorKey: Constants.navigatorKey,
+    );
   }
 }
 
